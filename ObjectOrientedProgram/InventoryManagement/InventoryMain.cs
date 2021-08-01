@@ -1,26 +1,45 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using Newtonsoft.Json;
+using ObjectOrientedProgramming;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
+using System.IO;
+using ObjectOrientedProgram.InventoryManagement;
 
-namespace ObjectOrientedProgram.InventoryManagement
+namespace ObjectOrientedProgramming.InventoryManagement
 {
     public class InventoryMain
     {
-        public void DisplayData(string filepath)
+
+
+        public void DisplayData(String filepath)
         {
             try
             {
-                using (StreamReader read = new StreamReader(filepath))
+                if (File.Exists(filepath))
                 {
-                    var json = read.ReadToEnd();
-                    var items = JsonConvert.DeserializeObject<List<InventoryModel>>(json);
-                    Console.WriteLine("Name\tWeight\tRate\tAmount");
-                    foreach (var item in items)
+                    string jsonData = File.ReadAllText(filepath);
+                    InventoryModel jsonObjectArray = JsonConvert.DeserializeObject<InventoryModel>(jsonData);
+                    Console.WriteLine("Name" + "\t" + "Weight" + "\t" + "Rate" + "\t" + "Amount");
+                    List<Rice> rice = jsonObjectArray.RiceList;
+                    foreach (var item in rice)
                     {
                         Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + "\t" + "{3}", item.Name, item.Weight, item.PricePerKg, item.Weight * item.PricePerKg);
                     }
+                    List<Wheat> wheat = jsonObjectArray.WheatList;
+                    foreach (var item in wheat)
+                    {
+                        Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + "\t" + "{3}", item.Name, item.Weight, item.PricePerKg, item.Weight * item.PricePerKg);
+                    }
+                    List<Pulses> pulses = jsonObjectArray.PulsesList;
+                    foreach (var item in pulses)
+                    {
+                        Console.WriteLine("{0}" + "\t" + "{1}" + "\t" + "{2}" + "\t" + "{3}", item.Name, item.Weight, item.PricePerKg, item.Weight * item.PricePerKg);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("File Does not Exists");
                 }
             }
             catch (Exception e)
@@ -28,5 +47,7 @@ namespace ObjectOrientedProgram.InventoryManagement
                 throw new Exception(e.Message);
             }
         }
+
+
     }
 }

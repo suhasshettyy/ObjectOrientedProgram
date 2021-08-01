@@ -1,23 +1,44 @@
-[
-  {
+{
+  "RiceList": [
+    {
 
-    "Name": "Rice",
-    "Weight": 70.0,
-    "PricePerKg": 80.0
+      "Name": "Basmata",
+      "Weight": 25.0,
+      "PricePerKg": 55.0
+    },
+    {
 
-  },
-  {
+      "Name": "Kohla",
+      "Weight": 26.0,
+      "PricePerKg": 57.0
+    }
+  ],
+  "WheatList": [
+    {
 
-    "Name": "Wheat",
-    "Weight": 90.0,
-    "PricePerKg": 70.0
+      "Name": "Common",
+      "Weight": 25.0,
+      "PricePerKg": 55.0
+    },
+    {
 
-  },
-  {
+      "Name": "Spelt",
+      "Weight": 25.0,
+      "PricePerKg": 55.0
+    }
+  ],
+  "PulsesList": [
+    {
 
-    "Name": "Pulses",
-    "Weight": 88.0,
-    "PricePerKg": 125.0
+      "Name": "Rajma",
+      "Weight": 25.0,
+      "PricePerKg": 55.0
+    },
+    {
 
-  }
-]
+      "Name": "Chana",
+      "Weight": 25.0,
+      "PricePerKg": 55.0
+    }
+  ]
+}
